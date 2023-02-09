@@ -187,17 +187,39 @@ Accuracy tests:
 Profiling:
 ==========
 
-Examples can be profiled using [intel vtune](https://software.intel.com/en-us/intel-vtune-amplifier-xe). To profile e.g. example "spatial" run
+Examples can be profiled using [intel vtune](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html#gs.ozipp5). To profile e.g. example "spatial" run
+
+Note you may need to restart your system after installation. After installed make sure you profile the example with
+
 ```shell
 make spatial.profile
 ```
-This requires "amplxe-cl" on your path. View the profile with
+This requires "vtune" on your path see [set environment variables for CLI development](Set Environment Variables for CLI Development) if not set. View the profile with
 ```shell
-amplxe-gui spatial.profile
+vtune-gui spatial.profile
 ```
 
-Memory leaks can be found using
+This will run a hotspots profile. You can also profile memory consumption
+```shell
+make spatial.memconsumptionprofile
+```
+
+Memory leaks can be found using [intel inspector](https://www.intel.com/content/www/us/en/developer/tools/oneapi/inspector.html#gs.ozitxy)
 ```shell
 make spatial.memprofile
 inspxe-gui spatial.memprofile
 ```
+
+## To profile your own model
+
+2. Copy the C++ and R script here with names `<model>.cpp` and `<model>.R`
+2. Ensure any source files used are accessible with absolute paths
+3. Run from the terminal in tmb_examples dir
+```shell
+make <model>.profile
+```
+for hotspots profile or
+```shell
+make <model>.memconsumptionprofile
+```
+to profile the memory consumption.

@@ -37,6 +37,9 @@ clean :
 %.profile : %.R %.cpp
 	example=$(basename $<) type=hotspots $(R) --slave < tools/profiler.R
 
+%.memconsumptionprofile : %.R %.cpp
+	example=$(basename $<) type=memory-consumption $(R) --slave < tools/profiler.R
+
 %.memprofile : %.R %.cpp
 	example=$(basename $<) type=mi1 $(R) --slave < tools/profiler.R
 

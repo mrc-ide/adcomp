@@ -20,6 +20,7 @@ amplxe.options <- c(
     "hpc-performance",
     "locksandwaits",
     "memory-access",
+    "memory-consumption",
     "sgx-hotspots",
     "tsx-exploration",
     "tsx-hotspots")
@@ -40,7 +41,7 @@ inspxe.options <- c(
     "ti3")
 
 if (!is.na(match(type, amplxe.options))) {
-    cmd <- paste("amplxe-cl -collect ",
+    cmd <- paste("vtune -collect ",
                  type,
                  " -result-dir ",
                  example,
