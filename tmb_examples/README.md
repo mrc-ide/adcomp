@@ -212,7 +212,7 @@ inspxe-gui spatial.memprofile
 
 ## To profile your own model
 
-2. Copy the C++ and R script here with names `<model>.cpp` and `<model>.R`
+1. Copy the C++ and R script here with names `<model>.cpp` and `<model>.R`
 2. Ensure any source files used are accessible with absolute paths
 3. Run from the terminal in tmb_examples dir
 ```shell
